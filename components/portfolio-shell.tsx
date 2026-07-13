@@ -221,10 +221,6 @@ function ArchitectureDiagram() {
         </div>
       </div>
 
-      <div className="architecture-backlog">
-        <div><TestTube2 size={19} /><span><strong>Production-hardening path</strong><small>Concrete next steps found while tracing the current implementation.</small></span></div>
-        <ul>{portfolio.flagship.architecture.backlog.map((item) => <li key={item}><ChevronRight size={14} />{item}</li>)}</ul>
-      </div>
     </div>
   );
 }

@@ -178,11 +178,6 @@ export const portfolio = {
         { title: "External dependencies", detail: "Compose points each instance to host-provided MySQL and Ollama services; Pinecone is reached through its Java client." },
         { title: "Observability & load", detail: "Actuator endpoints expose runtime health, while k6 exercises the login path through user lookup and BCrypt verification." },
       ],
-      backlog: [
-        "Activate PDF text extraction in the live recommendation path; the current controller passes a resume reference while the PDFBox extraction block is commented out.",
-        "Re-enable CSRF protection and enforce role authorization at endpoint level in addition to role-aware views.",
-        "Move uploaded files to shared object storage before relying on two stateless application instances in production.",
-      ],
     },
   },
   supportingProjects: [
