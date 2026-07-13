@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Devesh Kumar Choubey — Engineering Control Center",
     locale: "en_IN",
-    images: [{ url: "/og.png", width: 1792, height: 924, alt: "Devesh Kumar Choubey — Backend Systems and Practical AI" }],
+    images: [{ url: "/og.webp", width: 1200, height: 630, alt: "Devesh Kumar Choubey — Backend Systems and Practical AI" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Devesh Kumar Choubey — Backend Systems & Practical AI",
     description: "Dependable Java/Python backend systems and practical AI workflows.",
-    images: ["/og.png"],
+    images: ["/og.webp"],
   },
   robots: { index: true, follow: true },
 };
