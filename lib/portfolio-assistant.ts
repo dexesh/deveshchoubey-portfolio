@@ -13,9 +13,9 @@ export function answerPortfolioQuestion(question: string): AssistantResponse {
 
   if (/job|portal|architecture|pinecone|ollama|semantic/.test(value)) {
     return {
-      answer: `${portfolio.flagship.name} is Devesh’s flagship project. Its full path runs from Thymeleaf views through Spring Security, seven MVC controllers, domain services, JPA repositories, MySQL, role-specific recruiter and candidate workflows, local file handling, and an Ollama/Pinecone recommendation boundary. Docker Compose runs two Java 21 application containers behind NGINX, and the committed k6 artifact records 1,000 peak virtual users and 7,196 requests.`,
+      answer: `${portfolio.flagship.name} is Devesh’s flagship project. It is a Spring Boot 4 modular monolith for recruiters and job seekers, secured with role and ownership authorization, CSRF protection, sessions, and BCrypt. MySQL stores business data, Redis caches candidate embeddings and recommendation IDs while coordinating startup backfill, and Ollama plus Pinecone power asynchronous top-five semantic recommendations. Docker Compose runs two Java 21 application instances behind NGINX.`,
       mock: true,
-      evidence: ["Current JobPortal controllers and services", "Entity and repository model", "Docker, NGINX, and k6 files"],
+      evidence: ["Current JobPortal README", "Redis cache and coordination behavior", "Docker Compose deployment setup"],
     };
   }
 
@@ -29,7 +29,7 @@ export function answerPortfolioQuestion(question: string): AssistantResponse {
 
   if (/skill|stack|technology|java|python/.test(value)) {
     return {
-      answer: "His primary positioning is Java/Spring backend engineering with Python automation and applied AI integration. Strong supporting tools include MySQL, JPA/Hibernate, Docker Compose, NGINX, k6, Ollama, Pinecone, FastAPI, PyTorch, and Whisper.",
+      answer: "His primary positioning is Java/Spring backend engineering with Python automation and applied AI integration. Strong supporting tools include MySQL, Redis, JPA/Hibernate, Docker Compose, NGINX, Ollama, Pinecone, FastAPI, PyTorch, and Whisper.",
       mock: true,
       evidence: ["Resume skills", "Public JobPortal source", "Public dependency files"],
     };
@@ -52,7 +52,7 @@ export function answerPortfolioQuestion(question: string): AssistantResponse {
   }
 
   return {
-    answer: "I can answer questions about Devesh’s JobPortal architecture, backend and AI skills, Infosys experience, education, projects, or contact details. This assistant currently uses local structured portfolio data, not a live RAG model.",
+    answer: "I can answer questions about Devesh’s JobPortal, backend and AI skills, Infosys experience, education, projects, or contact details. This assistant currently uses local structured portfolio data, not a live RAG model.",
     mock: true,
     evidence: ["Local structured portfolio dataset"],
   };

@@ -7,25 +7,20 @@ import {
   ArrowRight,
   ArrowUpRight,
   Bot,
-  Boxes,
   BriefcaseBusiness,
   Check,
   ChevronRight,
   CircleDot,
   Code2,
   Command,
-  Database,
   Download,
   ExternalLink,
   GraduationCap,
-  Layers3,
   LoaderCircle,
   Mail,
   Menu,
-  Network,
   Search,
   Send,
-  ServerCog,
   ShieldCheck,
   Sparkles,
   Terminal,
@@ -39,7 +34,6 @@ const navigation = [
   ["about", "About"],
   ["skills", "Skills"],
   ["projects", "Projects"],
-  ["architecture", "Architecture"],
   ["experience", "Timeline"],
   ["assistant", "Assistant"],
   ["contact", "Contact"],
@@ -146,89 +140,10 @@ function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void 
   );
 }
 
-function ArchitectureDiagram() {
-  const pathIcons = [Terminal, Network, ShieldCheck, Boxes, Layers3, Database, ServerCog];
-
-  return (
-    <div className="full-architecture" aria-label="Complete JobPortal system architecture and workflows">
-      <div className="architecture-group">
-        <div className="architecture-group-head"><span>REQUEST PATH / 01</span><h3>One request across the complete application stack</h3></div>
-        <div className="request-path">
-          {portfolio.flagship.architecture.requestPath.map((node, index) => {
-            const Icon = pathIcons[index];
-            return (
-              <div className="request-node-wrap" key={node.id}>
-                <div className="request-node">
-                  <div><span>{node.id}</span><Icon size={17} aria-hidden="true" /></div>
-                  <h4>{node.title}</h4>
-                  <p>{node.detail}</p>
-                </div>
-                {index < portfolio.flagship.architecture.requestPath.length - 1 ? <ArrowRight className="request-arrow" size={17} aria-hidden="true" /> : null}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="architecture-group">
-        <div className="architecture-group-head"><span>PRODUCT FLOWS / 02</span><h3>Two roles, one connected hiring workflow</h3></div>
-        <div className="actor-flow-grid">
-          {portfolio.flagship.architecture.actorFlows.map((flow, flowIndex) => (
-            <article className="actor-flow" key={flow.actor}>
-              <div className="actor-flow-title"><div>{flowIndex === 0 ? <Search size={18} /> : <BriefcaseBusiness size={18} />}</div><span><strong>{flow.actor}</strong><small>{flow.summary}</small></span></div>
-              <ol>{flow.steps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span><p>{step}</p></li>)}</ol>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      <div className="architecture-group">
-        <div className="architecture-group-head"><span>DOMAIN MAP / 03</span><h3>Controllers, services, repositories, and persistence responsibilities</h3></div>
-        <div className="domain-grid">
-          {portfolio.flagship.architecture.domains.map((domain, index) => (
-            <article className="domain-card" key={domain.title}>
-              <div><span>D{index + 1}</span><CircleDot size={12} /></div>
-              <h4>{domain.title}</h4>
-              <code>{domain.code}</code>
-              <p>{domain.detail}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      <div className="architecture-group ai-architecture">
-        <div className="architecture-group-head"><span>AI RETRIEVAL / 04</span><h3>Job indexing and candidate-to-job recommendation</h3></div>
-        <div className="ai-flow-grid">
-          {portfolio.flagship.architecture.aiFlow.map((step, index) => (
-            <div className="ai-flow-step" key={step.id}>
-              <div><span>{step.id}</span>{index < portfolio.flagship.architecture.aiFlow.length - 1 ? <ArrowRight size={15} /> : <Check size={15} />}</div>
-              <h4>{step.title}</h4>
-              <p>{step.detail}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="architecture-group">
-        <div className="architecture-group-head"><span>RUNTIME TOPOLOGY / 05</span><h3>Deployment, dependencies, and operational feedback</h3></div>
-        <div className="deployment-grid">
-          {portfolio.flagship.architecture.deployment.map((item, index) => (
-            <article key={item.title}><span>0{index + 1}</span><h4>{item.title}</h4><p>{item.detail}</p></article>
-          ))}
-        </div>
-        <div className="topology-line" aria-label="Deployment topology">
-          <span>Browser</span><ArrowRight size={15} /><span>NGINX :80</span><ArrowRight size={15} /><span>app1 :8080</span><span className="topology-or">OR</span><span>app2 :8080</span><ArrowRight size={15} /><span>MySQL · Ollama · Pinecone</span>
-        </div>
-      </div>
-
-    </div>
-  );
-}
-
 function PortfolioAssistant() {
   const presets = ["How does JobPortal work?", "What is Devesh’s strongest stack?", "What impact has he delivered?"];
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("Ask about JobPortal architecture, engineering skills, work impact, or education.");
+  const [answer, setAnswer] = useState("Ask about JobPortal, engineering skills, work impact, or education.");
   const [evidence, setEvidence] = useState<string[]>(["Local structured portfolio dataset"]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -454,7 +369,7 @@ export function PortfolioShell() {
                 <div className="project-status"><CircleDot size={13} /><span>{portfolio.flagship.status}</span></div>
               </aside>
             </div>
-            <div className="evidence-callout"><TestTube2 size={19} /><div><strong>Evidence, not theatre</strong><p>{portfolio.flagship.caveat}</p></div></div>
+            <div className="evidence-callout"><TestTube2 size={19} /><div><strong>Verified runtime behavior</strong><p>{portfolio.flagship.caveat}</p></div></div>
           </Reveal>
 
           <div className="supporting-header"><h3>Additional projects</h3><span>Concise · resume-sourced</span></div>
@@ -471,16 +386,8 @@ export function PortfolioShell() {
           </div>
         </section>
 
-        <section className="section-shell content-section" id="architecture">
-          <Reveal><SectionHeading index="04" eyebrow="Architecture lab" title="The complete JobPortal—not only the AI feature." intro="A source-level map of the current controllers, services, repositories, entity relationships, role workflows, recommendation boundary, file handling, and two-instance deployment topology." /></Reveal>
-          <Reveal className="architecture-panel">
-            <div className="architecture-panel-head"><div><span>JOBPORTAL / SOURCE-LEVEL SYSTEM MAP</span><h3>Full hiring platform architecture</h3></div><div className="architecture-scope">7 controllers · 13 services · 7 repositories · 9 persisted entities</div></div>
-            <ArchitectureDiagram />
-          </Reveal>
-        </section>
-
         <section className="section-shell content-section" id="experience">
-          <Reveal><SectionHeading index="05" eyebrow="Trajectory" title="Experience and education." /></Reveal>
+          <Reveal><SectionHeading index="04" eyebrow="Trajectory" title="Experience and education." /></Reveal>
           <div className="timeline">
             {portfolio.experience.map((item) => (
               <Reveal className="timeline-item" key={item.company}>
@@ -498,12 +405,12 @@ export function PortfolioShell() {
         </section>
 
         <section className="section-shell content-section" id="achievements">
-          <Reveal><SectionHeading index="06" eyebrow="Measured outcomes" title="Selected engineering and problem-solving impact." /></Reveal>
+          <Reveal><SectionHeading index="05" eyebrow="Measured outcomes" title="Selected engineering and problem-solving impact." /></Reveal>
           <div className="achievement-grid">{portfolio.achievements.map((item, index) => <Reveal className="achievement" key={item.label} delay={index * 0.04}><strong>{item.value}</strong><span>{item.label}</span></Reveal>)}</div>
         </section>
 
         <section className="section-shell content-section" id="assistant">
-          <Reveal><SectionHeading index="07" eyebrow="Portfolio assistant" title="Query the evidence—not a generic chatbot." intro="This demo answers from a structured local dataset. Its interface and API boundary are ready for a future retrieval backend." /></Reveal>
+          <Reveal><SectionHeading index="06" eyebrow="Portfolio assistant" title="Query the evidence—not a generic chatbot." intro="This demo answers from a structured local dataset. Its interface and API boundary are ready for a future retrieval backend." /></Reveal>
           <Reveal><PortfolioAssistant /></Reveal>
         </section>
 
@@ -511,7 +418,7 @@ export function PortfolioShell() {
           <Reveal>
             <div className="contact-grid">
               <div className="contact-copy">
-                <div className="section-kicker"><span>08</span>Contact</div>
+                <div className="section-kicker"><span>07</span>Contact</div>
                 <h2>Have a hard systems problem or a practical AI idea?</h2>
                 <p>I’m interested in backend, platform, integration, and applied AI roles where reliability matters as much as the demo.</p>
                 <div className="contact-links">
