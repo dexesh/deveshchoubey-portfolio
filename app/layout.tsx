@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Devesh Kumar Choubey — Backend Systems & Practical AI",
-    description: "An engineering control center for dependable backend systems and practical AI workflows.",
+    description: "Java backends, AI applications, and selected projects by Devesh Kumar Choubey.",
     url: "/",
-    siteName: "Devesh Kumar Choubey — Engineering Control Center",
+    siteName: "Devesh Kumar Choubey — Software Engineer",
     locale: "en_IN",
     images: [{ url: "/og.webp", width: 1200, height: 630, alt: "Devesh Kumar Choubey — Backend Systems and Practical AI" }],
   },
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#050914",
-  colorScheme: "dark",
+  themeColor: "#f5f5f0",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -53,9 +53,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></head>
       <body>{children}</body>
     </html>
   );
 }
+

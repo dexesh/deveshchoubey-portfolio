@@ -1,70 +1,33 @@
-# Devesh Kumar Choubey — Engineering Control Center
+# Devesh Choubey — Portfolio
 
-A production-oriented developer portfolio built around verified backend engineering work and practical AI workflows. The flagship JobPortal case study combines resume claims with public-repository evidence and labels the provenance of important metrics.
+A responsive Next.js portfolio with selected GitHub projects, experience, education, résumé, and direct contact links.
 
-## What is included
+## Development
 
-- Responsive single-page portfolio with accessible semantic structure
-- Sticky navigation with active-section highlighting
-- Keyboard command palette (`Ctrl/Cmd + K`)
-- Detailed JobPortal workflow and architecture map
-- Structured skills, experience, education, achievements, and contact data
-- Mock portfolio assistant isolated behind `/api/assistant`
-- Validated contact form that prepares a draft in the visitor's email app
-- SEO metadata, JSON-LD, sitemap, and robots configuration
-- Reduced-motion support and visible keyboard focus states
-- Privacy-safe downloadable resume without the phone number
+Use Node.js 22 or newer and pnpm. Install with `pnpm install --frozen-lockfile`, then run `pnpm dev`. Run `pnpm build` for a production build and `pnpm start` to serve it.
 
-## Technology
+## Content
 
-- Next.js 16 and TypeScript
-- Tailwind CSS 4
-- Framer Motion
-- Lucide icons
-- Vercel-ready production build
+- `components/portfolio-shell.tsx`: page content and project descriptions.
+- `data/portfolio.ts`: identity and profile links.
+- `app/globals.css`: responsive styling.
+- `public/Devesh_Choubey_Public_Resume.pdf`: existing résumé, retained unchanged.
 
-## Local setup
+The project retains the original package versions and lockfile. It is ready for the existing Vercel Next.js workflow. No environment variables are required. The local node_modules junction is only a development convenience and must not be committed or deployed.
 
-Requires Node.js 22.13 or newer and pnpm.
+## Project research — 11 September 2026
 
-```bash
-pnpm install
-pnpm dev
-```
+Descriptions were checked against these public repositories:
 
-Open the local address printed by the development server.
+- https://github.com/dexesh/JobPortal/blob/main/README.md
+- https://github.com/dexesh/EcommerceApplication/tree/main/services/auth-service
+- https://github.com/dexesh/BlogApp/blob/master/README.md
 
-## Build
+EcommerceApplication is shown as in development: the repository contains registration, domain policies, persistence adapters, and tests, while authentication and refresh-token service files are unfinished. No completed checkout, payment, or token-authentication system is claimed.
 
-```bash
-pnpm build
-```
+## Redesign
 
-## Content customization
+Removed the mock assistant and endpoint, fake terminal, command palette, repeated metrics, provenance labels, and email-draft form. Contact is now a direct email link. Detailed JobPortal architecture is available through an accessible disclosure.
 
-All portfolio copy, links, skills, projects, metrics, experience, and education are centralized in:
-
-```text
-data/portfolio.ts
-```
-
-Visual behavior and interactive sections live in `components/portfolio-shell.tsx`. The mock assistant's data adapter is in `lib/portfolio-assistant.ts`, while the API boundary is `app/api/assistant/route.ts`.
-
-To connect a real RAG service later, keep the frontend response contract and replace the deterministic implementation behind `/api/assistant`.
-
-## Contact behavior
-
-The contact form validates name, email, and message in the browser, then opens a pre-filled email draft. It does not transmit or store form data on the site. Connect a transactional email provider if direct form delivery is required.
-
-## Deployment
-
-Import the GitHub repository into Vercel and keep the detected Next.js settings. The included `vercel.json` runs the production build with webpack. Vercel automatically supplies the production URL used by metadata, sitemap, and robots output. No database, object storage, secret, or external runtime credential is required for the current version.
-
-## Placeholders and confirmations
-
-- No custom domain is required; Vercel provides a free `vercel.app` address. If a custom domain is added later, set `NEXT_PUBLIC_SITE_URL` to its canonical HTTPS URL.
-- Add repositories or verified demos for the Resume Tailoring Agent and Speech-to-Text project before enabling source/live links.
-- Add certifications only after the issuer and credential details are supplied.
-- The JobPortal 85% relevance figure is labeled resume-reported until an evaluation dataset or methodology is available.
-- No public phone number or street address is included.
+The original social preview image is retained. Production is hosted on Vercel at https://deveshchoubey-portfolio.vercel.app/.
 
